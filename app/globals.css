@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #111111;
+  --foreground: #222222;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  white-space: normal;
+
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.strong {
+  background-color: #111;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.list-square {
+  list-style: inside;
+  list-style-type: circle;
+}
+
+.typo-headline {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.typo-section-title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.typo-section-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.typo-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #333333;
+}
+
+.typo-body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+  opacity: 0.95;
+}
+
+.typo-body-sub {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #555555;
 }
