@@ -25,5 +25,5 @@ export function useActiveSection(ids: number[]) {
     return () => observer.disconnect();
   }, [ids]);
 
-  return activeId;
+  return { activeId, setActiveId };
 }

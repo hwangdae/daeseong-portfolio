@@ -10,7 +10,7 @@ import {
 import { useActiveSection } from "@/hooks/useActiveSection";
 
 const Main = () => {
-  const activeId = useActiveSection(
+  const { activeId, setActiveId } = useActiveSection(
     [
       ...NOWAIT_PROJECT_HIGHLIGHTS,
       ...MYSELECTSHOP_PROJECT_HIGHLIGHTS,
@@ -21,12 +21,13 @@ const Main = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-
+      behavior: "smooth",
     });
+    setActiveId(0);
   };
 
   return (
-    <div className="bg-white max-w-[1100px] mx-auto my-8 py-32 px-16 overflow-hidden">
+    <div className="bg-white max-w-275 mx-auto my-8 py-32 px-16 overflow-hidden">
       <HeroSection />
       <CaseStudySection />
       <Navigation activeId={activeId} />

@@ -3,13 +3,11 @@ import SectionBlock from "@/components/common/SectionBlock";
 import {
   CASE_STUDIES,
   CaseStudy,
-  Service,
   SERVICE_DESCRIPTION,
 } from "@/constant/caseStudies";
 import Image from "next/image";
 
 export default function CaseStudySection() {
-  const ALL_CASE_STUDIES = [...CASE_STUDIES, ...SERVICE_DESCRIPTION];
   return (
     <section className="mx-auto">
       {CASE_STUDIES.map((caseStudy: CaseStudy) => (
@@ -160,15 +158,12 @@ export default function CaseStudySection() {
             </section>
           </article>
           {/* {CASE_STUDIES.length !== caseStudy.id && <Divider />} */}
-         <Divider />
-
+          <Divider />
         </div>
       ))}
 
       <ul id={`14`} className="w-full my-32 scroll-mt-32">
-        <h1 className="typo-section-title mb-6">
-          서비스 설명
-        </h1>
+        <h1 className="typo-section-title mb-6">서비스 설명</h1>
         {SERVICE_DESCRIPTION.map((service) => {
           return (
             <li className="mb-10 " key={service.id}>
