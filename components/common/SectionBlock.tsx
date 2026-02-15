@@ -9,7 +9,7 @@ const SectionBlock = ({
 }) => {
   return (
     <div className="mb-12">
-      <h2 className="typo-section-subtitle mb-4">{title}</h2>
+      <h2 className="typo-section-subtitle mb-2">{title}</h2>
       {children}
     </div>
   );

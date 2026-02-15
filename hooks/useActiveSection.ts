@@ -14,11 +14,7 @@ export function useActiveSection(ids: number[]) {
           }
         });
       },
-      {
-        root: null,
-        rootMargin: "-40% 0px -40% 0px", // 화면 중앙 기준
-        threshold: 0,
-      }
+      { threshold: 0.3 },
     );
 
     ids.forEach((id) => {

@@ -2,7 +2,7 @@
 
 :root {
   --background: #111111;
-  --foreground: #222222;
+  --foreground: #111;
 }
 
 body {
@@ -26,10 +26,34 @@ body {
 }
 
 .typo-headline {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
+}
+
+.typo-overview {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #666666;
+}
+
+.typo-sub-overview {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #333;
+}
+
+.typo-sub-headline {
+  font-size: 15px;
+  font-weight: 200;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #5f5f5f;
 }
 
 .typo-section-title {
@@ -49,7 +73,7 @@ body {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.45;
-  color: #333333;
+  color: #111;
 }
 
 .typo-body {
@@ -64,4 +88,10 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: #555555;
+}
+
+.typo-navi {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
 }

@@ -29,6 +29,18 @@ export interface CaseStudy {
   }[];
 }
 
+export interface Service {
+  id: number;
+  title: string;
+  description: string;
+  image: {
+    id: number;
+    url: string;
+    width: number;
+    height: number;
+  };
+}
+
 export const CASE_STUDIES: CaseStudy[] = [
   // Case Study 1
   {
@@ -160,7 +172,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           mediaWidth: "max-w-[500px]",
           height: 400,
           description: [
-            `1. <strong>시작</strong> 버튼 클릭 시 좌표 생성 모드 활성화`,
+            "1. `시작` 버튼 클릭 시 좌표 생성 모드 활성화",
             "2. 지도 클릭 시 마커 생성과 함께 스토어 ID 입력 팝업 노출",
             "3. 입력한 스토어 ID와 클릭 좌표(lat, lng)를 매핑해 내부 배열에 저장",
             "4. `중지` 버튼으로 좌표 생성 모드 종료",
@@ -186,45 +198,6 @@ export const CASE_STUDIES: CaseStudy[] = [
   // Case Study 3
   {
     id: 3,
-
-    title: "애니메이션 이미지 로딩 지연 UX 개선를 통한 사용자 경험 향상",
-    problem: [
-      {
-        id: 1,
-        title:
-          "페이지 진입 시 애니메이션 이미지가 즉시 표시되지만, 초기 로딩 구간에서 프레임 드랍이 발생하며 시각적으로 끊기는 현상이 발생",
-      },
-    ],
-    causes: [
-      "Chrome DevTools(Network / Performance) 분석 결과, 네트워크 지연이 아닌 이미지 디코딩과 렌더링이 동시에 발생하면서 메인 스레드에 부하 발생",
-      "애니메이션 프레임이 준비되지 않은 상태에서 렌더링이 시작되어 프레임 손실 발생",
-    ],
-
-    solution: [
-      {
-        id: 1,
-        title: "fallback 이미지를 먼저 로드하도록 수정",
-        subTitle: [
-          "fallback 이미지를 먼저 렌더링하여 초기 화면 안정화",
-          "Image 객체를 활용해 메인 애니메이션을 백그라운드에서 선로딩",
-          "decode()를 사용해 모든 프레임 디코딩 완료 이후에만 애니메이션을 화면에 적용",
-        ],
-      },
-    ],
-    result: [
-      {
-        id: 1,
-        title: "애니메이션 시작 시 발생하던 프레임 드랍 제거",
-      },
-      {
-        id: 2,
-        title: "초기 렌더링 구간의 체감 품질 개선",
-      },
-    ],
-  },
-  // Case Study 4
-  {
-    id: 4,
 
     title: "낙관적 업데이트를 통한 북마크 기능 사용자 경험 개선",
     problem: [
@@ -274,10 +247,50 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
   },
+  // Case Study 4
+  {
+    id: 4,
+
+    title: "애니메이션 이미지 로딩 지연 UX 개선를 통한 사용자 경험 향상",
+    problem: [
+      {
+        id: 1,
+        title:
+          "페이지 진입 시 애니메이션 이미지가 즉시 표시되지만, 초기 로딩 구간에서 프레임 드랍이 발생하며 시각적으로 끊기는 현상이 발생",
+      },
+    ],
+    causes: [
+      "Chrome DevTools(Network / Performance) 분석 결과, 네트워크 지연이 아닌 이미지 디코딩과 렌더링이 동시에 발생하면서 메인 스레드에 부하 발생",
+      "애니메이션 프레임이 준비되지 않은 상태에서 렌더링이 시작되어 프레임 손실 발생",
+    ],
+
+    solution: [
+      {
+        id: 1,
+        title: "fallback 이미지를 먼저 로드하도록 수정",
+        subTitle: [
+          "fallback 이미지를 먼저 렌더링하여 초기 화면 안정화",
+          "Image 객체를 활용해 메인 애니메이션을 백그라운드에서 선로딩",
+          "decode()를 사용해 모든 프레임 디코딩 완료 이후에만 애니메이션을 화면에 적용",
+        ],
+      },
+    ],
+    result: [
+      {
+        id: 1,
+        title: "애니메이션 시작 시 발생하던 프레임 드랍 제거",
+      },
+      {
+        id: 2,
+        title: "초기 렌더링 구간의 체감 품질 개선",
+      },
+    ],
+  },
+
   // Case Study 5
   {
     id: 5,
-    title: "LocalStorage 기반 장바구니 상태 관리 구조 개선",
+    title: "상태 로직과 저장소 책임 분리를 통한 장바구니 데이터 일관성 개선",
     problem: [
       {
         id: 1,
@@ -333,7 +346,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   // Case Study 6
   {
     id: 6,
-    title: "결제 직전 서버 검증을 통한 장바구니 품절 처리 UX 개선",
+    title: "결제 전 서버 검증을 통한 장바구니 품절 처리 UX 개선",
     problem: [
       {
         id: 1,
@@ -345,7 +358,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       "장바구니 상태가 서버와 분리된 클라이언트 상태",
       "실시간 품절 여부를 지속적으로 동기화할 경우 서버 요청 증가",
     ],
-    solution: [
+    failedAttempts: [
       {
         id: 1,
         title: "장바구니 변경 시 서버 검증 시도",
@@ -362,9 +375,11 @@ export const CASE_STUDIES: CaseStudy[] = [
           "모바일 환경에서 비효율적",
         ],
       },
+    ],
+    solution: [
       {
-        id: 3,
-        title: "결제 직전 서버 검증 방식 채택",
+        id: 1,
+        title: "결제 전 서버 검증 방식 채택",
         subTitle: [
           "결제 페이지 진입 시 서버와 통신하여 장바구니 전체 품절 여부 검증",
           "품절 메뉴 존재 시 결제 중단 및 모달 안내",
@@ -377,8 +392,127 @@ export const CASE_STUDIES: CaseStudy[] = [
       { id: 3, title: "결제 실패로 인한 사용자 혼란 및 이탈 감소" },
     ],
   },
+  // Case Study 7
   {
     id: 7,
+    title: "브라우저 히스토리 제어를 통한 결제 완료 UX 안정화",
+    problem: [
+      {
+        id: 1,
+        title:
+          "주문 완료 후 사용자가 브라우저 뒤로가기를 누를 경우 이미 완료된 결제 페이지로 다시 이동하는 UX 문제 발생",
+      },
+      {
+        id: 2,
+        title:
+          "결제 완료 이후에도 이전 결제 페이지가 히스토리에 남아 있어 사용자 혼란 및 중복 결제 가능성 존재",
+      },
+    ],
+    causes: [
+      "웹 환경에서 브라우저 히스토리 스택은 완전하게 제어할 수 없음",
+      "단순 페이지 이동(push) 방식은 기존 히스토리를 유지해 UX 흐름 제어에 한계 존재",
+      "클라이언트 상태 기반 제어는 새로고침 시 상태가 초기화되는 문제",
+    ],
+    solution: [
+      {
+        id: 1,
+        title: "조건부 리다이렉트 및 상태 플래그 방식 검증",
+        subTitle: [
+          "결제 완료 여부를 기준으로 접근 시 리다이렉트 처리 시도",
+          "상태 플래그를 활용해 결제 페이지 접근 차단 로직 구현",
+          "하지만 히스토리 스택이 유지되거나 새로고침 시 상태가 소실되는 한계 확인",
+        ],
+      },
+      {
+        id: 2,
+        title: "useNavigate + replace를 활용한 히스토리 스택 대체",
+        subTitle: [
+          "결제 완료 시 useNavigate(path, { replace: true }) 적용",
+          "기존 결제 페이지 히스토리를 새로운 완료 페이지로 대체",
+          "뒤로가기 시 결제 페이지가 아닌 의도한 이전 페이지로 이동하도록 UX 흐름 재설계",
+        ],
+      },
+    ],
+    result: [
+      {
+        id: 1,
+        title: "뒤로가기 시 결제 페이지 재진입 문제 해결로 결제 흐름 안정화",
+      },
+      {
+        id: 2,
+        title: "중복 결제에 대한 사용자 혼란 가능성 제거 및 UX 신뢰도 향상",
+      },
+      {
+        id: 3,
+        title:
+          "브라우저 히스토리 특성을 고려한 설계를 통해 사용자 행동 예측 가능성 확보",
+      },
+    ],
+  },
+  // Case Study 8
+  {
+    id: 8,
+    title: "Discord PR 알림 시스템 구축",
+    problem: [
+      {
+        id: 1,
+        title:
+          "PR 생성 후 코드 리뷰를 받기 위해 팀원에게 Discord DM으로 직접 리뷰 요청을 해야 했음",
+      },
+      {
+        id: 2,
+        title:
+          "PR 생성 및 리뷰 요청 여부를 수동으로 확인해야 하여, PR이 올라와도 즉시 인지되지 않는 경우가 빈번하게 발생",
+      },
+    ],
+    causes: [
+      "PR 생성 및 상태 변경에 대한 자동 알림 시스템 부재",
+      "GitHub에 직접 접속하지 않으면 리뷰 요청 여부를 알기 어려운 구조",
+      "리뷰 요청이 개인 DM에 의존해 협업 흐름이 단절되는 문제",
+    ],
+    solution: [
+      {
+        id: 1,
+        title: "GitHub WebHook 기반 PR 이벤트 감지",
+        subTitle: [
+          "PR 생성, 리뷰 요청, 리뷰 완료 등의 이벤트를 WebHook으로 수신",
+          "이벤트 타입에 따라 알림 메시지를 분기 처리",
+        ],
+      },
+      {
+        id: 2,
+        title: "Discord 채널 자동 알림 시스템 구축",
+        subTitle: [
+          "WebHook 이벤트 발생 시 Discord Webhook을 통해 채널로 자동 메시지 전송",
+          "PR 제목, 작성자, 리뷰 요청 대상, PR 링크를 함께 전달해 즉시 확인 가능하도록 구성",
+        ],
+      },
+    ],
+    result: [
+      {
+        id: 1,
+        title:
+          "PR 생성 및 리뷰 요청 시 팀원에게 자동 알림이 전달되어 리뷰 인지 속도 개선 (리뷰 시작 시간 2~3일 -> 1일 이내로 단축)",
+      },
+      {
+        id: 2,
+        title: "개인 DM 기반 요청을 제거해 반복적인 커뮤니케이션 비용 감소",
+      },
+      {
+        id: 3,
+        title:
+          "코드 리뷰 흐름이 Discord 채널 중심으로 정리되어 협업 가시성과 효율 향상",
+        image: { id: 1, url: "/assets/pr1.png", width: 600, height: 189 },
+      },
+    ],
+  },
+  // ============================== nowait end ====================================================
+
+  // ============================== myselectshop start ============================================
+
+  // Case Study 9
+  {
+    id: 9,
     title: "폰트 최적화를 통한 초기 로딩 속도 개선",
     problem: [
       {
@@ -425,63 +559,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
   },
+  // Case Study 10
   {
-    id: 8,
-    title: "GitHub Actions 기반 CI/CD 파이프라인 구축을 통한 배포 자동화",
-    problem: [
-      {
-        id: 1,
-        title:
-          "개발 서버의 변경 사항을 배포 서버에 반영하기 위해 매번 수동으로 빌드 및 파일 업로드를 진행해야 하는 비효율 발생",
-      },
-    ],
-    causes: [
-      "수동 배포 방식으로 인한 반복 작업 발생",
-      "배포 과정 중 누락·실수 가능성 존재",
-    ],
-    solution: [
-      {
-        id: 1,
-        title: "GitHub Actions 실행 환경 IP 동적 제어를 통한 보안 강화",
-        subTitle: [
-          "Actions 실행 시 퍼블릭 IP를 동적으로 조회한 후, 해당 IP만 AWS EC2 보안 그룹에 SSH 접근 권한으로 일시 등록하여 불필요한 포트 개방 없이 보안을 유지하도록 설계",
-        ],
-      },
-      {
-        id: 2,
-        title: "EC2 자동 배포 프로세스 실행 스크립트 작성",
-        subTitle: [
-          "SSH 접속 후 최신 코드 pull, 의존성 설치, prisma Client 생성, 애플리케이션 빌드 과정을 순차적으로 자동 실행",
-        ],
-      },
-      {
-        id: 3,
-        title: "서비스 프로세스 관리를 위한 PM2 도입",
-        subTitle: [
-          "PM2를 사용해 기존 서비스는 재시작하고, 최초 배포 시에는 새로운 프로세스를 생성하도록 처리해 안정적인 서비스 운영을 구성",
-        ],
-      },
-      {
-        id: 4,
-        title: "배포 완료 후 보안 설정 복구",
-        subTitle: [
-          "배포가 완료된 후에는 GitHub Actions의 퍼블릭 IP를 EC2 보안 그룹에서 다시 제거하여 자동화된 배포 환경에서도 보안을 유지",
-        ],
-      },
-    ],
-    result: [
-      {
-        id: 1,
-        title: "배포 시간 약 60% 단축 (5분 이상 → 2분 내외)",
-      },
-      {
-        id: 2,
-        title: "배포 자동화로 휴먼 에러 제거 및 안정성 확보",
-      },
-    ],
-  },
-  {
-    id: 9,
+    id: 10,
     title: "리뷰 이미지 업로드 병목 해결 (압축 · 병렬 처리 · 부분 실패 허용)",
     problem: [
       {
@@ -527,7 +607,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           id: 1,
           type: "image",
           url: "/assets/allsettled3.png",
-          imageWidth: 1766,
+          imageWidth: 1000,
         },
       },
     ],
@@ -536,7 +616,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         id: 1,
         title:
           "고해상도 이미지(약 5000KB) 5장 기준 리뷰 전체 업로드 시간 약 5초 → 2초로 단축",
-        image: { id: 1, url: "/assets/promise.png", width: 1200, height: 400 },
+        image: { id: 1, url: "/assets/promise.png", width: 1100, height: 300 },
       },
       {
         id: 2,
@@ -549,8 +629,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
   },
+  // Case Study 11
   {
-    id: 10,
+    id: 11,
     title: "Dynamic Import로 번들 크기 최적화 및 초기 로딩 성능 개선",
     problem: [
       {
@@ -560,7 +641,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         media: {
           id: 1,
           url: "/assets/bundle3.png",
-          width: 1400,
+          width: 1100,
           height: 760,
         },
       },
@@ -587,8 +668,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
   },
+  // Case Study 12
   {
-    id: 11,
+    id: 12,
     title: "지역 베스트 리뷰 조회 성능 개선 및 렌더링 최적화",
     problem: [
       {
@@ -652,60 +734,87 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
   },
+  // Case Study 13
   {
-  id: 12,
-  title: "Discord PR 알림 시스템 구축",
-  problem: [
-    {
+    id: 13,
+    title: "GitHub Actions 기반 CI/CD 파이프라인 구축을 통한 배포 자동화",
+    problem: [
+      {
+        id: 1,
+        title:
+          "개발 서버의 변경 사항을 배포 서버에 반영하기 위해 매번 수동으로 빌드 및 파일 업로드를 진행해야 하는 비효율 발생",
+      },
+    ],
+    causes: [
+      "수동 배포 방식으로 인한 반복 작업 발생",
+      "배포 과정 중 누락·실수 가능성 존재",
+    ],
+    solution: [
+      {
+        id: 1,
+        title: "GitHub Actions 실행 환경 IP 동적 제어를 통한 보안 강화",
+        subTitle: [
+          "Actions 실행 시 퍼블릭 IP를 동적으로 조회한 후, 해당 IP만 AWS EC2 보안 그룹에 SSH 접근 권한으로 일시 등록하여 불필요한 포트 개방 없이 보안을 유지하도록 설계",
+        ],
+      },
+      {
+        id: 2,
+        title: "EC2 자동 배포 프로세스 실행 스크립트 작성",
+        subTitle: [
+          "SSH 접속 후 최신 코드 pull, 의존성 설치, prisma Client 생성, 애플리케이션 빌드 과정을 순차적으로 자동 실행",
+        ],
+      },
+      {
+        id: 3,
+        title: "서비스 프로세스 관리를 위한 PM2 도입",
+        subTitle: [
+          "PM2를 사용해 기존 서비스는 재시작하고, 최초 배포 시에는 새로운 프로세스를 생성하도록 처리해 안정적인 서비스 운영을 구성",
+        ],
+      },
+      {
+        id: 4,
+        title: "배포 완료 후 보안 설정 복구",
+        subTitle: [
+          "배포가 완료된 후에는 GitHub Actions의 퍼블릭 IP를 EC2 보안 그룹에서 다시 제거하여 자동화된 배포 환경에서도 보안을 유지",
+        ],
+      },
+    ],
+    result: [
+      {
+        id: 1,
+        title: "배포 시간 약 60% 단축 (5분 이상 → 2분 내외)",
+      },
+      {
+        id: 2,
+        title: "배포 자동화로 휴먼 에러 제거 및 안정성 확보",
+      },
+    ],
+  },
+];
+
+export const SERVICE_DESCRIPTION: Service[] = [
+  {
+    id: 1,
+    title: "노웨잇",
+    description:
+      "노웨잇 서비스는 대학교 축제에서 불필요한 주점 웨이팅, 수기로 작성되는 주문 시스템을 개선하기 위해 만들어졌습니다. 관리자와 사용자 모두 고려한 기획과 설계가 이루어졌으며, 1명의 디자이너와 프론트엔드 3명, 백엔드 2명이 팀을 이루어 기획 및 디자인, 개발을 진행 하였고, 주 2회 오프라인 회의와 Discord, Figma, Swagger를 통해 원활한 소통과 협업을 진행했습니다. 현재는 더 좋은 서비스 제공을 위해 웹 서비스에서 앱 서비스로 마이그레이션 진행중 입니다.",
+    image: {
       id: 1,
-      title:
-        "PR 생성 후 코드 리뷰를 받기 위해 팀원에게 Discord DM으로 직접 리뷰 요청을 해야 했음",
+      url: "/assets/nowait-service.svg",
+      width: 1100,
+      height: 484,
     },
-    {
-      id: 2,
-      title:
-        "PR 생성 및 리뷰 요청 여부를 수동으로 확인해야 하여, PR이 올라와도 즉시 인지되지 않는 경우가 빈번하게 발생",
-    },
-  ],
-  causes: [
-    "PR 생성 및 상태 변경에 대한 자동 알림 시스템 부재",
-    "GitHub에 직접 접속하지 않으면 리뷰 요청 여부를 알기 어려운 구조",
-    "리뷰 요청이 개인 DM에 의존해 협업 흐름이 단절되는 문제",
-  ],
-  solution: [
-    {
+  },
+  {
+    id: 2,
+    title: "마이셀렉트샵",
+    description:
+      "마이 셀렉트샵 서비스는 여유 시간이 생겼을 때, 그 시간을 활용해 쇼핑을 즐기면 어떨까 하는 아이디어에서 시작되었습니다. 개인 프로젝트로 초기 세팅부터 배포 자동화까지 전 과정을 직접 진행했으며, PostgreSQL과 Prisma를 사용해 데이터베이스 설계 및 관리 경험을 쌓을 수 있었습니다.",
+    image: {
       id: 1,
-      title: "GitHub WebHook 기반 PR 이벤트 감지",
-      subTitle: [
-        "PR 생성, 리뷰 요청, 리뷰 완료 등의 이벤트를 WebHook으로 수신",
-        "이벤트 타입에 따라 알림 메시지를 분기 처리",
-      ],
+      url: "/assets/mySelectshop-service.png",
+      width: 1200,
+      height: 527,
     },
-    {
-      id: 2,
-      title: "Discord 채널 자동 알림 시스템 구축",
-      subTitle: [
-        "WebHook 이벤트 발생 시 Discord Webhook을 통해 채널로 자동 메시지 전송",
-        "PR 제목, 작성자, 리뷰 요청 대상, PR 링크를 함께 전달해 즉시 확인 가능하도록 구성",
-      ],
-    },
-  ],
-  result: [
-    {
-      id: 1,
-      title:
-        "PR 생성 및 리뷰 요청 시 팀원에게 자동 알림이 전달되어 리뷰 인지 속도 개선",
-    },
-    {
-      id: 2,
-      title:
-        "개인 DM 기반 요청을 제거해 반복적인 커뮤니케이션 비용 감소",
-    },
-    {
-      id: 3,
-      title:
-        "코드 리뷰 흐름이 Discord 채널 중심으로 정리되어 협업 가시성과 효율 향상",
-    },
-  ],
-}
+  },
 ];
