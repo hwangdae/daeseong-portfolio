@@ -20,7 +20,7 @@ const HeroSection = () => {
           <ul className="mb-3">
             <h1 className="typo-sub-overview">노웨잇</h1>
             {NOWAIT_PROJECT_HIGHLIGHTS.map((highlight) => (
-              <li className="ml-2" key={highlight.id}>
+              <li className="" key={highlight.id}>
                 <a
                   href={`#${highlight.id}`}
                   className="typo-sub-headline underline decoration-[#999999]"
@@ -33,7 +33,7 @@ const HeroSection = () => {
           <ul className="mb-3">
             <h1 className="typo-sub-overview">마이셀렉트샵</h1>
             {MYSELECTSHOP_PROJECT_HIGHLIGHTS.map((highlight) => (
-              <li className="ml-2" key={highlight.id}>
+              <li className="" key={highlight.id}>
                 <a
                   href={`#${highlight.id}`}
                   className="typo-sub-headline underline decoration-[#999999]"
@@ -46,7 +46,7 @@ const HeroSection = () => {
           <ul>
             {/* <h1 className="typo-sub-overview">서비스 설명</h1> */}
             {SERVICE_HIGHLIGHTS.map((service) => (
-              <li className="ml-2" key={service.id}>
+              <li className="" key={service.id}>
                 <a
                   href={`#${service.id}`}
                   className="typo-sub-headline underline decoration-[#999999]"

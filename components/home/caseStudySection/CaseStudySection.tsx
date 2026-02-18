@@ -6,8 +6,11 @@ import {
   SERVICE_DESCRIPTION,
 } from "@/constant/caseStudies";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function CaseStudySection() {
+  const [isServiceImgLoading, setIsServiceImgLoading] = useState(true);
+
   return (
     <section className="mx-auto">
       {CASE_STUDIES.map((caseStudy: CaseStudy) => (
@@ -161,19 +164,35 @@ export default function CaseStudySection() {
           <Divider />
         </div>
       ))}
-
-      <ul id={`14`} className="w-full my-32 scroll-mt-32">
+      {/* 서비스 설명 */}
+      <ul id={`11`} className="w-full my-32 scroll-mt-32">
         <h1 className="typo-section-title mb-6">서비스 설명</h1>
         {SERVICE_DESCRIPTION.map((service) => {
           return (
-            <li className="mb-10 " key={service.id}>
+            <li className="mb-10 relative" key={service.id}>
               <h2 className="typo-section-subtitle mb-2">{service.title}</h2>
               <p className="typo-body mb-4">{service.description}</p>
+              {isServiceImgLoading && (
+                <ul className="grid grid-cols-9 gap-2 absolute inset-0 top-[135px]">
+                  {Array.from({ length: 18 }, (_, i) => (
+                    <div
+                      key={i}
+                      className="h-[210px] rounded-[12px] bg-[#cfcfcf]"
+                    />
+                  ))}
+                </ul>
+              )}
+
+              {/* 실제 이미지 */}
               <Image
                 src={service.image.url}
                 width={service.image.width}
                 height={service.image.height}
                 alt="서비스 이미지"
+                onLoadingComplete={() => setIsServiceImgLoading(false)}
+                className={`transition-opacity duration-300 ${
+                  isServiceImgLoading ? "opacity-0" : "opacity-100"
+                }`}
               />
             </li>
           );
