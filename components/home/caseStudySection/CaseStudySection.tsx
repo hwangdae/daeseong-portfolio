@@ -93,7 +93,7 @@ export default function CaseStudySection() {
                       )}
 
                       {/* 비디오 */}
-                      {solution.media?.type === "video" && (
+                      {/* {solution.media?.type === "video" && (
                         <div className="mt-4">
                           <div
                             className={`relative aspect-video ${solution.media.mediaWidth} rounded-xl overflow-hidden`}
@@ -122,7 +122,7 @@ export default function CaseStudySection() {
                             </ul>
                           )}
                         </div>
-                      )}
+                      )} */}
 
                       {/* 이미지 */}
                       {solution.media?.type === "image" && (

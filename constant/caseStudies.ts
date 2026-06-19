@@ -191,7 +191,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         id: 2,
         title: "좌표 입력 과정 실수 최소화 및 운영 효율 극대화",
-        image: { id: 1, url: "/assets/mapManage.svg", width: 653, height: 440 },
+        // image: { id: 1, url: "/assets/mapManage.svg", width: 653, height: 440 },
       },
     ],
   },
@@ -608,12 +608,12 @@ export const CASE_STUDIES: CaseStudy[] = [
           "업로드 결과 중 status가 'fulfilled'인 항목만 필터링하여 성공한 이미지들만 리뷰에 포함",
           "일부 이미지 업로드 실패 상황에서도 텍스트 리뷰 및 성공한 이미지는 정상적으로 저장되도록 개선\n(실패한 이미지는 재업로드 안내를 명확히 제공해 사용자 혼선을 최소화)",
         ],
-        media: {
-          id: 1,
-          type: "image",
-          url: "/assets/allsettled3.png",
-          imageWidth: 1000,
-        },
+        // media: {
+        //   id: 1,
+        //   type: "image",
+        //   url: "/assets/allsettled3.png",
+        //   imageWidth: 1000,
+        // },
       },
     ],
     result: [
@@ -643,12 +643,12 @@ export const CASE_STUDIES: CaseStudy[] = [
         id: 1,
         title:
           "하나의 컴포넌트에서 후기 미작성 안내, 후기 작성, 내가 작성한 후기 컴포넌트가 중첩 임포트되는 구조로 인해 실제 사용 여부와 관계없이 모든 코드가 초기 번들에 포함되었고, 이로 인해 초기 페이지 로딩 속도가 저하되는 문제가 발생",
-        media: {
-          id: 1,
-          url: "/assets/bundle3.png",
-          width: 1100,
-          height: 760,
-        },
+        // media: {
+        //   id: 1,
+        //   url: "/assets/bundle3.png",
+        //   width: 1100,
+        //   height: 760,
+        // },
       },
     ],
     causes: [
@@ -669,7 +669,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         id: 1,
         title:
           "3개 주요 페이지의 초기 JS 번들 크기를 최대 약 120KB 절감하여 초기 로딩 성능을 개선",
-        image: { id: 2, url: "/assets/bundleSize.png", width: 940, height: 63 },
+        // image: { id: 2, url: "/assets/bundleSize.png", width: 940, height: 63 },
       },
     ],
   },
