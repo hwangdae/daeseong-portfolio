@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #111111;
-  --foreground: #111;
+  --background: #1a1a1d;
+  --foreground: #e4e4e7;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -26,72 +30,336 @@ body {
 }
 
 .typo-headline {
-  font-size: 42px;
+  font-size: 43px;
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 .typo-overview {
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 300;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color: #666666;
+  color: #a8a8a8;
 }
 
 .typo-sub-overview {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 300;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color: #333;
+  color: #d8d8d8;
 }
 
 .typo-sub-headline {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 200;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #5f5f5f;
+  color: #a0a0a0;
 }
 
 .typo-section-title {
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -0.01em;
 }
 
 .typo-section-subtitle {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 500;
   line-height: 1.45;
 }
 
 .typo-subtitle {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   line-height: 1.45;
-  color: #111;
+  color: #e9e9e9;
 }
 
 .typo-body {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.65;
-  opacity: 0.95;
+  opacity: 0.85;
 }
 
 .typo-body-sub {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
-  color: #555555;
+  color: #a8a8a8;
 }
 
 .typo-navi {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1;
+}
+
+/* 블로그 목록 카드: 제목은 작게, 나머지 텍스트는 크게 */
+.post-card .typo-section-title {
+  font-size: 20px;
+}
+
+.post-card .typo-navi {
+  font-size: 16px;
+}
+
+.post-card .typo-body-sub {
+  font-size: 17px;
+}
+
+.post-card .typo-body {
+  font-size: 18px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  scroll-margin-top: 96px;
+}
+
+.markdown-body h1 {
+  font-size: 29px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 2rem 0 1rem;
+}
+
+.markdown-body h2 {
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.markdown-body h3 {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.markdown-body p {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.75;
+  opacity: 0.85;
+  margin: 1rem 0;
+}
+
+.markdown-body a {
+  color: #e4e4e7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.markdown-body ul {
+  list-style: disc;
+}
+
+.markdown-body ol {
+  list-style: decimal;
+}
+
+.markdown-body li {
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.85;
+  margin: 0.35rem 0;
+}
+
+.markdown-body li::marker {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.markdown-body blockquote {
+  margin: 1.25rem 0;
+  padding: 0.25rem 1rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  color: #a3a3a3;
+}
+
+.markdown-body code {
+  background-color: #111;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+}
+
+.markdown-body pre {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #111;
+  overflow-x: auto;
+}
+
+.markdown-body pre code {
+  background: none;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* 코드 블록 문법 하이라이팅 (highlight.js 토큰 클래스) */
+.markdown-body .hljs-comment,
+.markdown-body .hljs-quote {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.markdown-body .hljs-keyword,
+.markdown-body .hljs-selector-tag,
+.markdown-body .hljs-literal,
+.markdown-body .hljs-doctag {
+  color: #c792ea;
+}
+
+.markdown-body .hljs-string,
+.markdown-body .hljs-regexp,
+.markdown-body .hljs-addition {
+  color: #a5d6a7;
+}
+
+.markdown-body .hljs-number,
+.markdown-body .hljs-symbol,
+.markdown-body .hljs-bullet {
+  color: #f9a870;
+}
+
+.markdown-body .hljs-title,
+.markdown-body .hljs-section,
+.markdown-body .hljs-name {
+  color: #82aaff;
+}
+
+.markdown-body .hljs-built_in,
+.markdown-body .hljs-type,
+.markdown-body .hljs-class .hljs-title {
+  color: #ffcb6b;
+}
+
+.markdown-body .hljs-attr,
+.markdown-body .hljs-attribute,
+.markdown-body .hljs-variable,
+.markdown-body .hljs-template-variable,
+.markdown-body .hljs-property {
+  color: #89ddff;
+}
+
+.markdown-body .hljs-meta,
+.markdown-body .hljs-tag {
+  color: #94a3b8;
+}
+
+.markdown-body .hljs-deletion {
+  color: #f87171;
+}
+
+.markdown-body .hljs-emphasis {
+  font-style: italic;
+}
+
+.markdown-body .hljs-strong {
+  font-weight: 700;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+}
+
+.markdown-body hr {
+  margin: 2rem 0;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.markdown-body table {
+  width: 100%;
+  margin: 1.25rem 0;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.markdown-body:focus {
+  outline: none;
+}
+
+.markdown-body p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+.markdown-body a.link-bookmark {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.markdown-body a.link-bookmark:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.markdown-body .link-bookmark-favicon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin: 0;
+  border-radius: 3px;
+}
+
+.markdown-body .link-bookmark-title {
+  overflow: hidden;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #e4e4e7;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.markdown-body .link-bookmark-domain {
+  flex-shrink: 0;
+  font-size: 13px;
+  color: #7a7a7a;
 }
