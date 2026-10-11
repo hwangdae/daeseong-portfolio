@@ -1,23 +1,14 @@
-import {
-  MYSELECTSHOP_PROJECT_HIGHLIGHTS,
-  NOWAIT_PROJECT_HIGHLIGHTS,
-  SERVICE_HIGHLIGHTS,
-} from "@/constant/title";
+import { NAVIGATION_ITEMS } from "@/constant";
 
 interface NavigationProps {
   activeId: number;
 }
 
 const Navigation = ({ activeId }: NavigationProps) => {
-  const ALL_PROJECT_HIGHLIGHTS = [
-    ...NOWAIT_PROJECT_HIGHLIGHTS,
-    ...MYSELECTSHOP_PROJECT_HIGHLIGHTS,
-    ...SERVICE_HIGHLIGHTS,
-  ];
   return (
     <nav className="w-1 h-auto bg-[#333333] fixed right-6 bottom-17 flex flex-col">
       {activeId > 0 &&
-        ALL_PROJECT_HIGHLIGHTS.map((highlight) => {
+        NAVIGATION_ITEMS.map((highlight) => {
           const isActive = activeId === highlight.id;
           return (
             <a

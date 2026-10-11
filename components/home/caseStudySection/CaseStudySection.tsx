@@ -1,10 +1,8 @@
 import { Divider } from "@/components/common/Divider";
+import RichText from "@/components/common/RichText";
 import SectionBlock from "@/components/common/SectionBlock";
-import {
-  CASE_STUDIES,
-  CaseStudy,
-  SERVICE_DESCRIPTION,
-} from "@/constant/caseStudies";
+import { CASE_STUDIES, PROJECTS, SERVICE_SECTION } from "@/constant";
+import { CaseStudy } from "@/constant/types";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -27,7 +25,9 @@ export default function CaseStudySection() {
                 <ul className="pl-2 list-disc ml-5 space-y-1">
                   {caseStudy.problem.map((text, i) => (
                     <li key={i}>
-                      <h1 className="typo-subtitle">{text.title}</h1>
+                      <h1 className="typo-subtitle">
+                        <RichText text={text.title} />
+                      </h1>
                       {text.media && (
                         <Image
                           className="mt-3"
@@ -46,7 +46,7 @@ export default function CaseStudySection() {
                 <ul className="pl-2 list-disc ml-5 space-y-1">
                   {caseStudy.causes.map((cause, i) => (
                     <li key={i} className="typo-subtitle">
-                      {cause}
+                      <RichText text={cause} />
                     </li>
                   ))}
                 </ul>
@@ -57,11 +57,13 @@ export default function CaseStudySection() {
                   <ul className="pl-2 list-disc ml-5 space-y-2">
                     {caseStudy.failedAttempts.map((attempt, i) => (
                       <li key={i} className="typo-subtitle">
-                        <h3 className="mb-1.5">{attempt.title}</h3>
+                        <h3 className="mb-1.5">
+                          <RichText text={attempt.title} />
+                        </h3>
                         <ul className="list-square ml-5">
                           {attempt.subTitle?.map((sub, j) => (
                             <li key={j} className="typo-body">
-                              {sub}
+                              <RichText text={sub} />
                             </li>
                           ))}
                         </ul>
@@ -78,7 +80,9 @@ export default function CaseStudySection() {
                 <ul className="pl-2 list-disc ml-5 space-y-2">
                   {caseStudy.solution.map((solution, i) => (
                     <li key={i} className="typo-subtitle">
-                      <h3 className="mb-1.5">{solution.title}</h3>
+                      <h3 className="mb-1.5">
+                        <RichText text={solution.title} />
+                      </h3>
                       {solution.subTitle && (
                         <ul className="list-square list-inside ml-5">
                           {solution.subTitle.map((sub, j) => (
@@ -86,7 +90,7 @@ export default function CaseStudySection() {
                               key={j}
                               className="typo-body whitespace-pre-line pl-5 -indent-5"
                             >
-                              {sub}
+                              <RichText text={sub} />
                             </li>
                           ))}
                         </ul>
@@ -135,6 +139,15 @@ export default function CaseStudySection() {
                           />
                         </div>
                       )}
+                      {solution.image && (
+                        <Image
+                          className="mt-3"
+                          src={solution.image.url}
+                          width={solution.image.width}
+                          height={solution.image.height}
+                          alt="해결 방법 이미지"
+                        />
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -144,7 +157,9 @@ export default function CaseStudySection() {
                 <ul className="pl-2 list-disc ml-5 space-y-2">
                   {caseStudy.result.map((result, i) => (
                     <li key={i} className="typo-subtitle">
-                      <h3>{result.title}</h3>
+                      <h3>
+                        <RichText text={result.title} />
+                      </h3>
                       {result.image && (
                         <Image
                           className="mt-3"
@@ -165,15 +180,17 @@ export default function CaseStudySection() {
         </div>
       ))}
       {/* 서비스 설명 */}
-      <ul id={`11`} className="w-full my-32 scroll-mt-32">
-        <h1 className="typo-section-title mb-6">서비스 설명</h1>
-        {SERVICE_DESCRIPTION.map((service) => {
+      <ul id={`${SERVICE_SECTION.id}`} className="w-full my-32 scroll-mt-32">
+        <h1 className="typo-section-title mb-6">{SERVICE_SECTION.title}</h1>
+        {PROJECTS.map((service) => {
           return (
-            <li className="mb-10 relative" key={service.id}>
-              <h2 className="typo-section-subtitle mb-2">{service.title}</h2>
-              <p className="typo-body mb-4">{service.description}</p>
+            <li className="mb-10 relative" key={service.name}>
+              <h2 className="typo-section-subtitle mb-2">{service.name}</h2>
+              <p className="typo-body mb-4">
+                <RichText text={service.description} />
+              </p>
               {isServiceImgLoading && (
-                <ul className="grid grid-cols-9 gap-2 absolute inset-0 top-[135px]">
+                <ul className="grid grid-cols-9 gap-2 absolute inset-0 top-[141px]">
                   {Array.from({ length: 18 }, (_, i) => (
                     <div
                       key={i}

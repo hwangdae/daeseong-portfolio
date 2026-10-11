@@ -1,8 +1,4 @@
-import {
-  MYSELECTSHOP_PROJECT_HIGHLIGHTS,
-  NOWAIT_PROJECT_HIGHLIGHTS,
-  SERVICE_HIGHLIGHTS,
-} from "@/constant/title";
+import { PROJECTS, SERVICE_SECTION } from "@/constant";
 
 const HeroSection = () => {
   return (
@@ -17,44 +13,31 @@ const HeroSection = () => {
             <h2 className="typo-overview">Portfolio Overview</h2>
             <div className="w-full h-[1px] bg-[#c0c0c0]"></div>
           </div>
-          <ul className="mb-3">
-            <h1 className="typo-sub-overview">노웨잇</h1>
-            {NOWAIT_PROJECT_HIGHLIGHTS.map((highlight) => (
-              <li className="" key={highlight.id}>
-                <a
-                  href={`#${highlight.id}`}
-                  className="typo-sub-headline underline decoration-[#999999]"
-                >
-                  {highlight.id}. {highlight.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="mb-3">
-            <h1 className="typo-sub-overview">마이셀렉트샵</h1>
-            {MYSELECTSHOP_PROJECT_HIGHLIGHTS.map((highlight) => (
-              <li className="" key={highlight.id}>
-                <a
-                  href={`#${highlight.id}`}
-                  className="typo-sub-headline underline decoration-[#999999]"
-                >
-                  {highlight.id}. {highlight.title}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {PROJECTS.map((project) => (
+            <ul className="mb-3" key={project.name}>
+              <h1 className="typo-sub-overview">{project.name}</h1>
+              {project.caseStudies.map((caseStudy) => (
+                <li className="" key={caseStudy.id}>
+                  <a
+                    href={`#${caseStudy.id}`}
+                    className="typo-sub-headline underline decoration-[#999999]"
+                  >
+                    {caseStudy.id}. {caseStudy.overviewTitle}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ))}
           <ul>
             {/* <h1 className="typo-sub-overview">서비스 설명</h1> */}
-            {SERVICE_HIGHLIGHTS.map((service) => (
-              <li className="" key={service.id}>
-                <a
-                  href={`#${service.id}`}
-                  className="typo-sub-headline underline decoration-[#999999]"
-                >
-                  {service.title}
-                </a>
-              </li>
-            ))}
+            <li className="">
+              <a
+                href={`#${SERVICE_SECTION.id}`}
+                className="typo-sub-headline underline decoration-[#999999]"
+              >
+                {SERVICE_SECTION.title}
+              </a>
+            </li>
           </ul>
         </div>
       </div>

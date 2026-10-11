@@ -2,21 +2,11 @@
 import HeroSection from "./heroSection/HeroSection";
 import CaseStudySection from "./caseStudySection/CaseStudySection";
 import Navigation from "../navigation/Navigation";
-import {
-  MYSELECTSHOP_PROJECT_HIGHLIGHTS,
-  NOWAIT_PROJECT_HIGHLIGHTS,
-  SERVICE_HIGHLIGHTS,
-} from "@/constant/title";
+import { SECTION_IDS } from "@/constant";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
 const Main = () => {
-  const { activeId, setActiveId } = useActiveSection(
-    [
-      ...NOWAIT_PROJECT_HIGHLIGHTS,
-      ...MYSELECTSHOP_PROJECT_HIGHLIGHTS,
-      ...SERVICE_HIGHLIGHTS,
-    ].map((item) => item.id),
-  );
+  const { activeId, setActiveId } = useActiveSection(SECTION_IDS);
 
   const scrollToTop = () => {
     window.scrollTo({

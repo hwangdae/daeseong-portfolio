@@ -26,14 +26,14 @@ body {
 }
 
 .typo-headline {
-  font-size: 42px;
+  font-size: 43px;
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
 .typo-overview {
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 300;
   line-height: 1.4;
   letter-spacing: -0.01em;
@@ -41,7 +41,7 @@ body {
 }
 
 .typo-sub-overview {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 300;
   line-height: 1.4;
   letter-spacing: -0.01em;
@@ -49,7 +49,7 @@ body {
 }
 
 .typo-sub-headline {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 200;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -57,41 +57,41 @@ body {
 }
 
 .typo-section-title {
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -0.01em;
 }
 
 .typo-section-subtitle {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 500;
   line-height: 1.45;
 }
 
 .typo-subtitle {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   line-height: 1.45;
   color: #111;
 }
 
 .typo-body {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.65;
   opacity: 0.95;
 }
 
 .typo-body-sub {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
   color: #555555;
 }
 
 .typo-navi {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1;
 }
